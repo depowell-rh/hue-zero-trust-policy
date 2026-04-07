@@ -4,13 +4,16 @@
   sources:
     - ansible.eda.url_check:
         urls:
-          - "https://your-localtunnel-url.loca.lt/api/your-api-key/lights/1"
-        delay: 10  # Check every 10 seconds
+          - "https://unmystic-jonnie-nonterminatively.ngrok-free.dev/api/l252IftczLmVwO6DF0f66Ugy0IhaZ23c1jh4ZQPY/lights/1"
+        delay: 10
         verify_ssl: false
+        # We must add the ngrok bypass header here too so EDA can see the JSON
+        headers:
+          ngrok-skip-browser-warning: "true"
 
   rules:
-    - name: Detect Configuration Drift (Light is Red)
-      # Condition: If the XY coordinates don't match our Green baseline
+    - name: Detect Configuration Drift
+      # This triggers if the light is NOT the specific Green XY coordinates
       condition: event.url_check.json.state.xy != [0.409, 0.518]
       action:
         run_job_template:
