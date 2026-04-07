@@ -8,7 +8,7 @@
         url: "{{ bridge_url }}/api/{{ api_key }}/lights/{{ light_id }}/state"
         method: PUT
         headers:
-          Bypass-Tunnel-Reminder: "true"
+          ngrok-skip-browser-warning: "true"  # <--- Add this line
         body_format: json
         body:
           on: true
