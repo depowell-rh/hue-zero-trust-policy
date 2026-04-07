@@ -1,0 +1,18 @@
+---
+- name: Monitor Zero Trust Policy
+  hosts: all
+  sources:
+    - ansible.eda.url_check:
+        urls:
+          - "https://your-localtunnel-url.loca.lt/api/your-api-key/lights/1"
+        delay: 10  # Check every 10 seconds
+        verify_ssl: false
+
+  rules:
+    - name: Detect Configuration Drift (Light is Red)
+      # Condition: If the XY coordinates don't match our Green baseline
+      condition: event.url_check.json.state.xy != [0.409, 0.518]
+      action:
+        run_job_template:
+          name: "Policy-Enforcement-Green"
+          organization: "Default"
