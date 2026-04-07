@@ -1,0 +1,16 @@
+---
+- name: Enforce Zero Trust Policy
+  hosts: all
+  connection: local
+  tasks:
+    - name: Force Hue Light to Green Baseline
+      ansible.builtin.uri:
+        url: "{{ bridge_url }}/api/{{ api_key }}/lights/{{ light_id }}/state"
+        method: PUT
+        headers:
+          Bypass-Tunnel-Reminder: "true"
+        body_format: json
+        body:
+          on: true
+          bri: 254
+          xy: [0.409, 0.518]
