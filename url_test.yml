@@ -1,0 +1,15 @@
+---
+
+- name: URL Test 
+  hosts: localhost
+
+  tasks:
+    - name: Check that a page returns successfully but fail if the word AWESOME is not in the page contents
+      ansible.builtin.uri:
+        url: https://unmystic-jonnie-nonterminatively.ngrok-free.dev/api/l252IftczLmVwO6DF0f66Ugy0IhaZ23c1jh4ZQPY/lights/1
+        return_content: true
+      register: this
+
+    - name: Debug
+      ansible.builtin.debug:
+        msg: this
