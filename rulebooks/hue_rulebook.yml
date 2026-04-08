@@ -5,7 +5,7 @@
     - ansible.eda.url_check:
         urls:
           - "https://unmystic-jonnie-nonterminatively.ngrok-free.dev/api/l252IftczLmVwO6DF0f66Ugy0IhaZ23c1jh4ZQPY/lights/1"
-        delay: 10
+        delay: 5
         verify_ssl: false
         # We must add the ngrok bypass header here too so EDA can see the JSON
         headers:
