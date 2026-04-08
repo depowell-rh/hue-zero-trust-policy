@@ -14,7 +14,7 @@
   rules:
     - name: Detect Configuration Drift
       # This triggers if the light is NOT the specific Green XY coordinates
-      condition: event.url_check.json.state.xy != [0.409, 0.518]
+      condition: event.url_check.status == "up"
       action:
         run_job_template:
           name: "Policy-Enforcement-Green"
