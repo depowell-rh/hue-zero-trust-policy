@@ -1,1 +1,11 @@
+---
 
+sources:
+  - ansible.eda.webhook:
+      port: 5000
+rules:
+  - name: Detect Configuration Drift
+    condition: event.payload.state.xy != [0.409, 0.518]
+    action:
+      run_job_template:
+        name: "Policy-Enforcement-Green"
