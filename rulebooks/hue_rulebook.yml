@@ -13,7 +13,8 @@
 
   rules:
     - name: Detect Configuration Drift
-      # This triggers if the light is NOT the specific Green XY coordinates
+      # In a more specific configuration, this section would triggers if the light is NOT the specific Green XY coordinates
+      # However, here we simply continuosly enforce our baseline - meaning if our endpoint is up, make it adhere to our green enforcement policy 
       condition: event.url_check.status == "up"
       action:
         run_job_template:
