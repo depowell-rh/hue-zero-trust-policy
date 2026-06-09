@@ -394,17 +394,11 @@ light_id: "1"
 
 #### 1. Show the Baseline State
 
-**Say to audience:**
-> "We have a mission-critical system represented by this green light. In a Zero Trust model, we continuously verify this system maintains its approved configuration baseline."
-
 **Show:**
 - The physical green Hue light
 - AAP EDA Controller → Rulebook Activations → `Hue ZT` → History tab (monitoring events)
 
 #### 2. Trigger the "Failure"
-
-**Say to audience:**
-> "Now imagine an unauthorized change occurs—perhaps an attacker, a configuration drift, or a system fault. Watch as our system detects and automatically remediates this in real-time."
 
 **Action:**
 - Open Philips Hue app on your phone
@@ -428,26 +422,11 @@ light_id: "1"
 
 #### 4. Explain the Architecture
 
-**Say to audience:**
-> "This demonstrates closed-loop automation. No human intervention was required. The system detected, analyzed, and remediated the issue autonomously."
-
 **Show/Explain:**
 - **Detection Layer**: EDA rulebook polling the Hue API
 - **Decision Layer**: Rule condition evaluating the state
 - **Remediation Layer**: Ansible playbook enforcing the baseline
 - **Optional**: Show the rulebook YAML and playbook YAML in GitHub
-
-#### 5. Discuss Mission Value
-
-**Key talking points:**
-
-- **MTTR Reduction**: "Traditional MTTR for this type of issue might be 15-30 minutes if someone has to notice, log in, and fix it. Here it's 5 seconds."
-
-- **Scale**: "Imagine this across thousands of edge devices on ships, aircraft, or tactical vehicles—all self-healing without connectivity to a central NOC."
-
-- **Zero Trust**: "We're not just monitoring for alerts; we're continuously enforcing policy. Any drift is immediately corrected."
-
-- **Disconnected Operations**: "While I'm using ngrok for this demo, this exact rulebook could run on a local RHEL system at the edge with no cloud connectivity required."
 
 ---
 
